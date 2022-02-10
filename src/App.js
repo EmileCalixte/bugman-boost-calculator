@@ -29,16 +29,16 @@ const App = () => {
         const minTotalDollars = boostCost + averageDollarsPerDay * boostDuration;
         const totalDollarsMoreThanNormal = minTotalDollars - (averageDollarsPerDay * boostDuration);
         const dailyDollarsMoreThanNormal = Math.ceil(totalDollarsMoreThanNormal / boostDuration);
-        const dailyMessagesMoreThanNormal = Math.ceil(dailyDollarsMoreThanNormal / (AVERAGE_MONEY_PER_MESSAGE * boostRate));
-        const dailyMessages = dailyMessagesMoreThanNormal + averageMessagesPerDay;
-        const dailyMessagesMoreThanNormalPercentage = dailyMessages / averageMessagesPerDay;
+        const minDailyMessages = Math.ceil(minTotalDollars / (AVERAGE_MONEY_PER_MESSAGE * boostRate) / boostDuration);
+        const dailyMessagesMoreThanNormal = minDailyMessages - averageMessagesPerDay;
+        const dailyMessagesMoreThanNormalPercentage = minDailyMessages / averageMessagesPerDay;
 
         return {
             minTotalDollars,
             totalDollarsMoreThanNormal,
             dailyDollarsMoreThanNormal,
             dailyMessagesMoreThanNormal,
-            dailyMessages,
+            minDailyMessages,
             dailyMessagesMoreThanNormalPercentage,
         };
 
@@ -124,7 +124,7 @@ const App = () => {
             </div>
 
             <div>
-                Il doit donc poster en moyenne {boostWorth.dailyMessagesMoreThanNormal} messages de plus chaque jour, soit un total de {boostWorth.dailyMessages} messages par jour ({(boostWorth.dailyMessagesMoreThanNormalPercentage * 100).toFixed(0)}%)
+                Il doit donc poster en moyenne {boostWorth.dailyMessagesMoreThanNormal} messages de plus chaque jour, soit un total de {boostWorth.minDailyMessages} messages par jour ({(boostWorth.dailyMessagesMoreThanNormalPercentage * 100).toFixed(0)}%)
             </div>
 
         </div>
