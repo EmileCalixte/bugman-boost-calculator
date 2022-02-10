@@ -110,8 +110,8 @@ const App = () => {
             <div>
                 Si l'utilisateur ne modifie pas sa cadence moyenne de messages, il gagne :
                 <ul>
-                    <li>{boostBonus.dailyDollars}$ par jour, soit {boostBonus.dailyBonusDollars}$ de plus chaque jour</li>
-                    <li>{boostBonus.totalDollars}$ pendant la durée du boost ({boostDuration} jours), soit {boostBonus.totalBonusDollars}$ de plus au total</li>
+                    <li>{boostBonus.dailyBonusDollars}$ de plus chaque jour, soit un total de {boostBonus.dailyDollars}$ par jour</li>
+                    <li>{boostBonus.totalBonusDollars}$ de plus sur {boostDuration} jours, soit un total de {boostBonus.totalDollars}$ pendant la durée du boost</li>
                 </ul>
             </div>
 
