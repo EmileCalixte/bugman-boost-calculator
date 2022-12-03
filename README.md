@@ -1,1 +1,1 @@
-Test : https://bugman-boost-calculator.herokuapp.com/
+Test : https://bugman-boost-calculator.vercel.app/
